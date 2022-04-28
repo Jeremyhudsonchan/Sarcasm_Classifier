@@ -5,3 +5,6 @@ Basic Script for Sarcasm Detection
 
 ### Requirements
     pip install -r requirements.txt
+
+### Running Script
+    python3 sarcasm.py
