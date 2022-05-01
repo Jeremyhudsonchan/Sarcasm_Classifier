@@ -48,7 +48,7 @@ print(mnb.score(X_train, y_train))
 print(mnb.score(X_test, y_test))
 
 mnb_scores = cross_val_score(mnb, X_train, y_train, cv=10)
-print("Gaussian Naive Bayes Cross Validation Score:", mnb_scores.mean())
+print("Multinomial Naive Bayes Cross Validation Score:", mnb_scores.mean())
 
 mnb_y_pred = mnb.predict(X_test)
 mnb_cm = confusion_matrix(y_test, mnb_y_pred)
