@@ -1,9 +1,9 @@
 import pandas as pd
 import re
-from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split
 from sklearn.svm import LinearSVC
-from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
@@ -41,18 +41,18 @@ lsvc_cm = confusion_matrix(y_test, lsvc_y_pred)
 print(lsvc_cm)
 
 # model 2:-
-# Gaussian Naive Bayes
-gnb = GaussianNB()
-gnb.fit(X_train, y_train)
-print(gnb.score(X_train, y_train))
-print(gnb.score(X_test, y_test))
+# Multinomial Naive Bayes
+mnb = MultinomialNB()
+mnb.fit(X_train, y_train)
+print(mnb.score(X_train, y_train))
+print(mnb.score(X_test, y_test))
 
-gnb_scores = cross_val_score(gnb, X_train, y_train, cv=10)
-print("Gaussian Naive Bayes Cross Validation Score:", gnb_scores.mean())
+mnb_scores = cross_val_score(mnb, X_train, y_train, cv=10)
+print("Gaussian Naive Bayes Cross Validation Score:", mnb_scores.mean())
 
-gnb_y_pred = gnb.predict(X_test)
-gnb_cm = confusion_matrix(y_test, gnb_y_pred)
-print(gnb_cm)
+mnb_y_pred = mnb.predict(X_test)
+mnb_cm = confusion_matrix(y_test, mnb_y_pred)
+print(mnb_cm)
 
 # model 3:-
 # Logistic Regression
